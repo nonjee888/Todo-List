@@ -15,7 +15,8 @@ user = db.users.find_one({'name':'bobby'})
 same_ages = list(db.users.find({'age':21},{'_id':False}))
 
 # 바꾸기 - 예시
-db.users.update_one({'name':'bobby'},{'$set':{'age':19}})
+db.bookreview.update_one(doc)
+return jsonify ({'msg':'저장완료!'})
 
 # 지우기 - 예시
 db.users.delete_one({'name':'bobby'})
