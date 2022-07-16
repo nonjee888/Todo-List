@@ -22,12 +22,16 @@
             crossorigin="anonymous"></script>
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
+    <meta property="og:title" content="--Shopping mall--" />
+    <meta property="og:description" content="First web service_Eunji Roh" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage2.jpeg') }}" />
+
     <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Stylish', sans-serif;
         }
-
         .item-img {
             width: 500px;
             height: 300px;
@@ -57,63 +61,58 @@
 
             display: block;
         }
-
         .wrap {
             width: 500px;
             margin: auto;
         }
-
         .rate {
             color: blue;
         }
     </style>
 
     <script>
-        $(document).ready(function () {
-            get_rate();
-            listing();
+      $(document).ready(function () {
+           get_rate();
+           listing();
         });
-
-        function listing() {
-            $.ajax({
+      function get_rate(){
+           $.ajax({
                 type: "GET",
-                url: "/order",
+                url: "https://api.manana.kr/exchange/rate.json",
                 data: {},
-                success: function (response) {
-                    if (response["result"] == "success") {
-                        let orders = response['orders']
-                            for (let i = 0; i < orders.length; i++) {
-                            let name = orders[i]['name'];
-                            let count = orders[i]['count'];
-                            let address = orders[i]['address'];
-                            let phone = orders[i]['phone'];
-
-                            let temp_html = `<tr>
-                                            <th scope="row">${name}</th>
-                                            <td>${count}</td>
-                                            <td>${address}</td>
-                                            <td>${phone}</td>
-                                                </tr>`
-                            $('#order-box').append(temp_html)
-                        }
+                success: function(response){
+                    let now_rate = response[1]['rate'];
+                    $('#now-rate').text(now_rate);
                     }
-                }
             })
         }
-
-            function get_rate() {
-                $.ajax({
+      function listing(){
+          $.ajax({
                     type: "GET",
-                    url: "https://api.manana.kr/exchange/rate.json",
+                    url: "/order",
                     data: {},
                     success: function (response) {
-                        let now_rate = response[1]['rate'];
-                        $('#now-rate').text(now_rate);
+                        let orders = response['orders']
+                        for (let i =0; i < orders.length; i++) {
+                            let name = orders[i]['name']
+                            let count = orders[i]['count']
+                            let address = orders[i]['address']
+                            let phone = orders[i]['phone']
+
+                            let temp_html = `<tr>
+                                          <th scope="row">${name}</th>
+                                          <td>${count}</td>
+                                          <td>${address}</td>
+                                          <td>${phone}</td>
+                                             </tr>`
+                             $('#order-box').append(temp_html)
+                        }
                     }
                 })
             }
 
-            function order() {
+
+    function order(){
                 let name = $('#name').val();
                 let count = $('#count').val();
                 let address = $('#address').val();
@@ -122,12 +121,10 @@
                 $.ajax({
                     type: "POST",
                     url: "/order",
-                    data: {name_give: name, count_give: count, address_give: address, phone_give: phone},
+                    data: {name_give:name,count_give:count,address_give:address,phone_give:phone},
                     success: function (response) {
-                        if (response["result"] == "success") {
-                            alert(response["msg"]);
-                            window.location.reload();
-                        }
+                        alert(response["msg"]);
+                        window.location.reload();
                     }
                 })
             }
@@ -150,13 +147,12 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">주문자이름</span>
             </div>
-            <input id="name" type="text" class="form-control" aria-label="Default"
-                   aria-describedby="inputGroup-sizing-default">
+            <input id="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                <label class="input-group-text" for="inputGroupSelect01">수량</lbel>
             </div>
             <select class="custom-select" id="count">
                 <option selected>-- 수량을 선택하세요 --</option>
@@ -169,32 +165,30 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
             </div>
-            <input id="address" type="text" class="form-control" aria-label="Default"
-                   aria-describedby="inputGroup-sizing-default">
+            <input id="address" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
             </div>
-            <input id="phone" type="text" class="form-control" aria-label="Default"
-                   aria-describedby="inputGroup-sizing-default">
+            <input id="phone" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <button type="button" onclick="order()" class="btn btn-primary btn-order">주문하기</button>
 
     </div>
     <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">이름</th>
-            <th scope="col">수량</th>
-            <th scope="col">주소</th>
-            <th scope="col">전화번호</th>
-        </tr>
-        </thead>
-        <tbody id="order-box">
-        </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th scope="col">이름</th>
+      <th scope="col">수량</th>
+      <th scope="col">주소</th>
+      <th scope="col">전화번호</th>
+    </tr>
+  </thead>
+  <tbody id="order-box">
+  </tbody>
+</table>
 </div>
 </body>
 
