@@ -22,6 +22,25 @@
 
     <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
         <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+    <script>
+              $(document).ready(function () {
+                      q1();
+              });
+
+              function q1() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function(response){
+                    let rate = response['rate']
+                    $('#rate').text(rate);
+
+                }
+
+            })
+        }
+    </script>
     <style>
         *{
             font-family: 'Stylish', sans-serif;
@@ -44,6 +63,9 @@
             margin: auto;
             display: block;
         }
+        .rate{
+            color: blue;
+        }
 
     </style>
 </head>
@@ -53,6 +75,7 @@
         <div class="image"></div>
         <h1>트리를 팝니다 <span style="font-size: 40%;">가격: 80,000원/개</span></h1>
         <p>이 트리는 주문 특별 제작하는 상품으로 우리나라에 단 하나 뿐인 트리입니다. 크리스마스에 소중한 사람들과 특별한 추억을 만들어 보세요.</p>
+        <p class="rate">달러-원 환율:<span id="rate"></span></p>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">

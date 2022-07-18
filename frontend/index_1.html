@@ -44,19 +44,22 @@
             border: solid black 1.5px;
             padding: 40px 40px 40px 40px;
             border-radius: 5px;
+            display: none;
 
         }
     </style>
     <script>
-            let count = 1;
-            function hey() {
-            if (count % 2 == 0) {
-                alert('짝수입니다!!!!');
+        function openclose() {
+            let status = $('#post-box').css('display');
+            if (status == 'block') {
+                $('#post-box').hide();
+                $('#btn-postbox').text('포스팅박스 열기');
             } else {
-                alert('홀수입니다!!!')
+                $('#post-box').show();
+                $('#btn-postbox').text('포스팅박스 닫기');
             }
-            count += 1;
         }
+
     </script>
 </head>
 
@@ -67,15 +70,14 @@
             <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
             <hr class="my-4">
             <p class="lead">
-                <a onclick="hey()" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+                <a onclick="openclose()" class="btn btn-primary btn-lg" href="#" role="button" id="btn-postbox">포스팅박스 열기</a>
             </p>
         </div>
 
-        <div class="solid">
-            <div class="posting-box">
+            <div class="posting-box" id="post-box">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">아티클 URL</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label>아티클 URL</label>
+                    <input type="email" class="form-control" id="article-url" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label>간단코멘트</label>
@@ -83,9 +85,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">기사저장</button>
             </div>
-        </div>
 
-        <div class="card-columns">
+
+        <div class="card-columns" id="cards-box">
             <div class="card">
                 <img class="card-img-top"
                      src="https://p4.wallpaperbetter.com/wallpaper/616/484/1/zurich-city-switzerland-wallpaper-preview.jpg">

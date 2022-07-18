@@ -13,9 +13,8 @@ def test_get():
 
 @app.route('/test', methods=['POST'])
 def test_post():
-   title_receive = '봄날은 간다'
+   title_receive = request.form['title_give']
    print(title_receive)
-   return jsonify({'result':'success', 'msg': '이 요청은 POST!'})
-
+   return jsonify({'result':'success', 'msg': '요청을 잘 받았어요!'})
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)
