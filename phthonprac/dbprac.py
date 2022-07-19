@@ -1,4 +1,8 @@
 from pymongo import MongoClient
+client = MongoClient('mongodb+srv://nonjee88:<password>@cluster0.dehdolu.mongodb.net/?retryWrites=true&w=majority')
+db = client.dbsparta
+
+from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
 

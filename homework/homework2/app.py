@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, jsonify
-app = Flask(__name__)
-
 from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
+
+from flask import Flask, render_template, request, jsonify
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -22,10 +22,11 @@ def homework_post():
     db.homework.insert_one(doc)
     return jsonify({'msg':'응원완료!'})
 
+
 @app.route("/homework", methods=["GET"])
 def homework_get():
-    comment_list = list(db.homework.find({},{'_id':False}))
-    return jsonify({'comments':comment_list})
+    comments = list(db.homework.find({}, {'_id': False}))
+    return jsonify({'all_comments': comments})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Stylish&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Nanum Pen Script', sans-serif;
+        }
+        .image {
+            width: 500px;
+            height: 400px;
+            margin: auto;
+            background-image: url("https://shop2.daumcdn.net/thumb/R500x500/?fname=http%3A%2F%2Fshop2.daumcdn.net%2Fshophow%2Fp%2FR17717812409.jpg%3Fut%3D20220604222024");
+            background-size: cover;
+            background-position: top;
+        }
+        .wrap {
+             width: 500px;
+            height: 400px;
+            margin: auto;
+        }
+        .btn-primary {
+            margin: auto;
+            display: block;
+        }
+    </style>
+    <script>
+   $(document).ready(function () {
+             q1();
+         });
+    function q1() {
+                $.ajax({
+                    type: "GET",
+                    url: "http://spartacodingclub.shop/sparta_api/rate",
+                    data: {},
+                    success: function(response){
+                        let rate = response['rate']
+                        $('#rate').text(rate);
+                        }
+                })
+       }
+
+    </script>
+</head>
+
+<body>
+        <div class= "image">
+        </div>
+
+        <div class= "wrap">
+           <h1>드림 캐쳐 판매! <span style="font-size: medium">가격: 39000원/개</span></h1>
+           <p> 이 드림 캐쳐는 신비한 마법의 힘이 깃들어 있어요! 소망 하는 일은 모두 이루어 진답니다 :)</p>
+           <p style="color: blue">환율:<span id="rate"></span></p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">수량</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>--수량을 선택하세요--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+    </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button type="button" class="btn btn-primary">주문하기</button>
+        </div>
+</body>
+
+</html>
