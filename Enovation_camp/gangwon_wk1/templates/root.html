@@ -19,10 +19,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
         <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
         <script>
+            link = 'login.html';
             function myFunction() {
-                var f = document.myform;
-            }
+                    location.href = link;
+                }
         </script>
+
         <style>
         .body {
             width: 500px;
@@ -40,11 +42,12 @@
         }
         </style>
     </head>
+
     <body>
             <div class="body has-text-centered" style="padding:5rem 5rem 5rem 5rem; margin:auto;">
             <h1 style="font-size: xx-large"  >MY PORTFOLIO</h1>
                 <div class="control input-box">
-                  <form id="frm">
+                  <form id="myform">
                     <input class="input" type="text" placeholder="아이디를 입력하세요.">
                          <button onclick="myFunction()" class="button is-dark")>Search</button>
                   </form>
