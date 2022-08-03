@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>About Me</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="./../static/css/styles.css" rel="stylesheet"/>
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top"><h1>About Me</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#services">About Me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Project</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Archiving</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Developer's Portfoilo</div>
+        <div class="masthead-heading text-uppercase">Glad to meet you. This is ME</div>
+        <h3>공부가 취미인 개발자입니다. 꾸준함이 강점인 개발자 입니다.</h3>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+    </div>
+</header>
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">About Me</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Name</h4>
+                <p class="text-muted">{{personal_info["name"]}}</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Birth</h4>
+                <p class="text-muted">{{personal_info["birth"]}}</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Address</h4>
+                <p class="text-muted">{{personal_info["address"]}}</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Phone number</h4>
+                <p class="text-muted">{{personal_info["phone_number"]}}</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">E-mail</h4>
+                <p class="text-muted">{{personal_info["email"]}}</p>
+            </div>
+            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                <h4 class="my-3">Education</h4>
+                <p class="text-muted">{{personal_info["education"]}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Grid-->
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">SKILLS</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="skill-card-container_main">
+            <div class="skill-card-container">
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Frontend</h5>
+                    <!-- <img src="https://cdg-portfolio.com/images/skills/frontend.png" class="card-img-top" alt="..."> -->
+                    <img src="../static/account/jwc0507/career/opengl_logo.png" class="card-img-top" alt="...">
+                    <img src="../static/account/jwc0507/career/Wayland_Logo.svg.png" class="card-img-top" alt="...">
+                </div>
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Backend</h5>
+                    <img src="https://cdg-portfolio.com/images/skills/backend.png" class="card-img-top" alt="...">
+                </div>
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Mobile App</h5>
+                    <img src="https://cdg-portfolio.com/images/skills/mobile-app.png" class="card-img-top" alt="...">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About-->
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Career</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <ul class="timeline">
+            {%for personal_career in personal_career_list%}
+           <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                                 src="./../static/account/{{personal_career['id']}}/career/{{personal_career['image_name']}}"
+                                                 alt="..."/></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>{{personal_career["begin"]}}-{{personal_career["end"]}}</h4>
+                        <h4 class="subheading">{{personal_career["title"]}}</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">{{personal_career["description"]}}</p></div>
+                </div>
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+</section>
+<!-- Project -->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Project</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="mybox">
+            <div class="mybox-1">
+                <h3 class="project title"> 똑똑하게 N빵하기</h3>
+                <h6 class="date"> 2022.08.02 ~ 2022.08.04 </h6>
+            </div>
+            <div class="mybox-2">
+                <div id="carouselExampleControls-1" class="content-1 carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../static/account/jwc0507/career/opengl_logo.png"
+                                 class="d-block w-100" alt="...">
+                            <!-- <img src="https://cdg-portfolio.com/images/projects/dutch-pay-calculator/1.png"
+                                 class="d-block w-100" alt="..."> -->
+                            <figcaption>< 1/3 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/dutch-pay-calculator/2.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 2/3 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/dutch-pay-calculator/5.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 3/3 ></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-1"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-1"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="content-2">
+                    <p>
+                        <h7>
+                    <div class="detail">
+                        복잡한 상황에서의 N빵 계산을 도와 누가 누구에게 얼마를 보내야 하는지 계산해 주는 모바일 앱입니다. 동아리 활동을 하던 당시 여러 모임에서 N빵 계산 시 어려움을 겪은
+                        몇몇 상황에서
+                        아이디어를 얻어 개발하였습니다.
+                    </div>
+                    <div class="detail">
+                        이미 Android Native로 개발을 완료한 프로젝트였지만, React Native의 학습을 위해 이를 다시 React Native로 개발하였습니다. 이전 프로젝트와
+                        달리 이번에는
+                        전반적인 로직과 UI & UX를 개선하고 실제로 스토어에 출시까지 했다는 점에서 의미가 있습니다. 이제는 마음만 먹으면 모바일 앱도 개발하고 출시할 수 있다는 자신감을 준
+                        프로젝트입니다.
+                    </div>
+                    </h7>
+                    </p>
+                    <button type="button" class="btn btn-dark">자세히 보기</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="mybox">
+            <div class="mybox-1">
+                <h3 class="project title">친구가 보는 나의 성격은?</h3>
+                <h6 class="date"> 2022.05 - 2022.06 </h6>
+            </div>
+            <div class="mybox-2">
+                <div id="carouselExampleControls-2" class="content-1 carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/personality-test-by-friends/1.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 1/4 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/personality-test-by-friends/3.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 2/4 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/personality-test-by-friends/4.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 3/4 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/personality-test-by-friends/6.png"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 4/4 ></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-2"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-2"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="content-2">
+                    <p>
+                        <h7>
+                    <div class="detail">
+                        내가 생각하는 나의 성격과 친구가 생각하는 나의 성격을 비교함으로써 겉으로 보이는 나의 모습이 어떠한지 파악해볼 수 있는 웹사이트입니다. 실제로 지인과 성격 검사를 서로
+                        해주면서 얻은 아이디어를 바탕으로 직접 개발하였습니다.
+                    </div>
+                    <div class="detail">
+                        백 엔드 개발자와 협업하는 과정에 관해 많이 배울 수 있었습니다. 필요한 명세를 문서로 작성하여 소통하였고, 필요한 지식도 함께 공유하며 학습할 수 있었습니다.
+                    </div>
+                    </h7>
+                    </p>
+                    <button type="button" class="btn btn-dark">자세히 보기</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="mybox">
+            <div class="mybox-1">
+                <h3 class="project title">햇봉 위키 (React, Django)</h3>
+                <h6 class="date"> 2020.08 - 2020.11 </h6>
+            </div>
+            <div class="mybox-2">
+                <div id="carouselExampleControls-3" class="content-1 carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/1.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 1/6 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/2.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 2/6 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/3.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 3/6 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/4.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 4/6 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/5.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 5/6 ></figcaption>
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="https://cdg-portfolio.com/images/projects/hatbbong-wiki/8.jpg"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< 6/6 ></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-3"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-3"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="content-2">
+                    <p>
+                        <h7>
+                    <div class="detail">
+                        서울대학교 중앙 동아리 햇빛봉사단에 관한 유익한 정보들을 문서화하여 제공해주는 웹 서비스입니다. 해당 동아리 활동을 하던 당시 동아리의 규모에 비해 제대로 된 대표
+                        웹사이트가 없었다는 점이 아쉬워 구상했었던 아이디어를 바탕으로 개발하였습니다.
+                    </div>
+                    <div class="detail">
+                        이미 Django 풀 스택으로 개발을 완료한 프로젝트였지만, React의 학습을 위해 이를 React와 Django를 이용하여 다시 개발하였습니다. 그 과정에서 Django
+                        REST Framework도 학습하여 백 엔드 지식을 더욱 탄탄히 하였고, AWS의 리소스들을 직접 할당, 연결, 설정하면서 배포 경험도 쌓을 수 있었습니다.
+                    </div>
+                    </h7>
+                    </p>
+                    <button type="button" class="btn btn-dark">자세히 보기</button>
+                </div>
+            </div>
+
+
+        </div>
+</section>
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Archiving</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="last">
+            <div class="Archiving">
+                <img src="https://cdg-portfolio.com/images/archiving/git-hub.png">
+                <div><br><A href="https://github.com/">주소를 입력해주세요</A></div>
+            </div>
+            <div class="t_story">
+                <img src="https://cdg-portfolio.com/images/archiving/tistory.png">
+                <div><br><A href="https://www.tistory.com/">주소를 입력해주세요</A></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer-->
+<!-- footer html 시작 -->
+<footer class="footer_main">
+    <div class="footer_img_card">
+        <img src="https://raw.githubusercontent.com/kya9602/week1/master/static/github.png" class="footer_img">
+        <img src="https://raw.githubusercontent.com/kya9602/week1/master/static/tstory.png" class="footer_img">
+    </div>
+
+    <div class="footer_title">
+        © 2022. Team Innovation Camp(Gangwon). First week group 5. All rights reserved.
+    </div>
+</footer>
+<!-- footer html 끝 -->
+
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="../js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
