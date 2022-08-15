@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>About Me</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="./../static/css/styles.css" rel="stylesheet"/>
+    <!--js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script>
+    function update_profile() {
+            let name = $('#input-name').val()
+            let birth = $('#input-birth').val()
+            let address = $('#input-address').val()
+            let phone_number = $('#input-phone_number').val()
+            let email = $('#input-email').val()
+            let education = $('#input-education').val()
+            let form_data = new FormData()
+
+            form_data.append("name_give", name)
+            form_data.append("birth_give", birth)
+            form_data.append("address_give", address)
+            form_data.append("phone_number_give", phone_number)
+            form_data.append("email_give", email)
+            form_data.append("education_give", education)
+            console.log(name, birth, address, phone_number, email, education, form_data)
+
+            $.ajax({
+                type: "POST",
+                url: "/update_info", // 포스트요청
+                data: form_data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert(response["msg"])
+                        window.location.reload()
+
+                    }
+                }
+            });
+        }
+
+
+    function modal(){
+        $("#modal-post").addClass("is-active")
+    }
+
+    function sign_out() {
+            $.removeCookie('mytoken', {path: '/'});
+            alert('로그아웃!')
+            window.location.href = "/"
+        }
+
+    </script>
+
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+
+        <a class="navbar-brand" href="#page-top"><h1>About Me</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#services">About Me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Project</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Archiving</a></li>
+
+                <li class="nav-item"><a class="nav-link" aria-label="logout" onclick="sign_out()">
+                    Log Out&nbsp;&nbsp;&nbsp;
+                    <span class="icon is-small"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Developer's Portfoilo</div>
+        <div class="masthead-heading text-uppercase">Glad to meet you. This is ME</div>
+        <h3>공부가 취미인 개발자입니다. 꾸준함이 강점인 개발자 입니다.</h3>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+    </div>
+</header>
+
+
+<!--서비스-->
+<section class="page-section" style="background-color: #F9F2ED;" id="services">
+    <div class="container">
+        <div class="text-center">
+            <!-- 모달 -->
+            {% if status %}
+            <h2 class="section-heading text-uppercase" style="position: relative">About Me
+                <button onclick = "modal()" type="button" class="btn btn-dark btn-lg"
+                        style="position: absolute; right:0%; bottom:0%;">
+                edit
+                </button>
+            </h2>
+                        <div class="modal" id="modal-edit">
+                <div class="modal-background" onclick='$("#modal-edit").removeClass("is-active")'></div>
+                <div class="modal-content">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="field">
+                                    <label class="label" for="input-name">이름</label>
+                                    <p class="control">
+                                        <input id="input-name" class="input"
+                                               placeholder="홍길동" value="{{ user_info.username }}">
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="input-name">생년월일</label>
+                                    <p class="control">
+                                        <input id="input-birth" class="input"
+                                               placeholder="YYYY.MM.DD" value="{{ personal_info.birth }}">
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="input-name">주소</label>
+                                    <p class="control">
+                                        <input id="input-address" class="input"
+                                               placeholder="서울시 중구" value="{{ personal_info.address }}">
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="input-name">연락처</label>
+                                    <p class="control">
+                                        <input id="input-phone_number" class="input"
+                                               placeholder="010-1234-1234" value="{{ personal_info.phone_number }}">
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="input-name">이메일</label>
+                                    <p class="control">
+                                        <input id="input-email" class="input"
+                                               placeholder="email.@email.com" value="{{ personal_info.email }}">
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="input-name">학력</label>
+                                    <p class="control">
+                                        <input id="input-education" class="input"
+                                               placeholder="@@대학 졸업 (@@학과)" value="{{ personal_info.education }}">
+                                    </p>
+                                </div>
+
+
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+
+                                    </div>
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <a class="button is-sparta" onclick="update_profile()">업데이트</a>
+                                        </div>
+                                        <div class="level-item">
+                                            <a class="button is-sparta is-outlined"
+                                               onclick='$("#modal-edit").removeClass("is-active")'>취소</a>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="modal-close is-large" aria-label="close"
+                        onclick='$("#modal-edit").removeClass("is-active")'></button>
+            </div>
+            {% endif %}
+
+            <br><br><br><br>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h4 class="my-3">Name</h4>
+                <p class="text-muted">{{personal_info["name"]}}</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Birth</h4>
+                <p class="text-muted">{{personal_info["birth"]}}</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Address</h4>
+                <p class="text-muted">{{personal_info["address"]}}</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Phone number</h4>
+                <p class="text-muted">{{personal_info["phone_number"]}}</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="my-3">E-mail</h4>
+                <p class="text-muted">{{personal_info["email"]}}</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="my-3">Education</h4>
+                <p class="text-muted">{{personal_info["education"]}}</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- Portfolio Grid-->
+<section class="page-section" style="background-color: #9C9EFE;" id="portfolio">
+    <div class="container">
+        <div class="text-center" style="position: relative;">
+            <h2 class="section-heading text-uppercase">SKILLS
+                <button type="button" class="btn btn-dark btn-lg" style="position: absolute; right:0%; bottom:0%;"
+                ">
+                edit
+                </button>
+            </h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="skill-card-container_main">
+            <div class="skill-card-container">
+                {%for personal_skill in personal_skill_list%}
+                <div class="skill-card">
+                    <h5 class="skill-card-title">{{personal_skill["category"]}}</h5>
+                    {%for image_name in personal_skill["images"]%}
+                    <img src="./../static/account/{{personal_skill['id']}}/skill/{{image_name}}" class="card-img-top"
+                         alt="...">
+                    {%endfor%}
+                </div>
+                {%endfor%}
+                <!--
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Frontend</h5>
+                    <img src="https://cdg-portfolio.com/images/skills/frontend.png" class="card-img-top" alt="...">
+                    <img src="../static/account/jwc0507/career/opengl_logo.png" class="card-img-top" alt="...">
+                    <img src="../static/account/jwc0507/career/Wayland_Logo.svg.png" class="card-img-top" alt="...">
+                </div>
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Backend</h5>
+                    <img src="https://cdg-portfolio.com/images/skills/backend.png" class="card-img-top" alt="...">
+                </div>
+                <div class="skill-card">
+                    <h5 class="skill-card-title">Mobile App</h5>
+                    <img src="https://cdg-portfolio.com/images/skills/mobile-app.png" class="card-img-top" alt="...">
+                </div>
+                   -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Career -->
+<section class="page-section" style="background-color: #FFB562;" id="about">
+    <div class="container">
+        <div class="text-center" style="position: relative">
+            <h2 class="section-heading text-uppercase">Career
+                <button type="button" class="btn btn-dark btn-lg" style="position: absolute; right:0%; bottom:0%;"
+                ">
+                edit
+                </button></h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <ul class="timeline">
+
+            {% for personal_career in personal_career_list %}
+
+            <li>
+                <div class="timeline-image"><img
+                        src="./../static/account/{{personal_career['id']}}/career/{{personal_career['image_name']}}"
+                        alt="..."/></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>{{personal_career["begin"]}}-{{personal_career["end"]}}</h4>
+                        <h4 class="subheading">{{personal_career["title"]}}</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">{{personal_career["description"]}}</p></div>
+                </div>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+    </div>
+</section>
+
+
+
+
+<!-- Project -->
+<section class="page-section" style="background-color: #F87474;" id="team">
+    <div class="container" >
+        <div class="text-center" style="position: relative">
+            <h2 class="section-heading text-uppercase">Project
+                <button type="button" class="btn btn-dark btn-lg" style="position: absolute; right:0%; bottom:0%;"
+                ">
+                edit
+                </button>
+            </h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        {%for personal_project in personal_project_list%}
+        <div class="mybox">
+            <div class="mybox-1">
+                <h3 class="project title"> {{personal_project["name"]}}</h3>
+                <h6 class="date"> {{personal_project["begin"]}} ~ {{personal_project["end"]}} </h6>
+            </div>
+            <div class="mybox-2">
+                <div id="carouselExampleControls-{{loop.index}}" class="content-1 carousel slide"
+                     data-bs-ride="carousel">
+
+                    <div class="carousel-inner">
+                        {%for image in personal_project["images"]%}
+                        {%if loop.index==1%}
+                        <div class="carousel-item active">
+                            <figure class="figure">
+                                <img src="../static/account/{{personal_project['id']}}/project/{{personal_project['name']}}/{{image}}"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< {{loop.index}}/{{personal_project["images"]|length}} ></figcaption>
+                            </figure>
+                        </div>
+                        {%else%}
+                        <div class="carousel-item">
+                            <figure class="figure">
+                                <img src="../static/account/{{personal_project['id']}}/project/{{personal_project['name']}}/{{image}}"
+                                     class="d-block w-100" alt="...">
+                                <figcaption>< {{loop.index}}/{{personal_project["images"]|length}}></figcaption>
+                            </figure>
+                        </div>
+                        {%endif%}
+                        {%endfor%}
+
+
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleControls-{{loop.index}}"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleControls-{{loop.index}}"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="content-2">
+                    <p>
+                        <h7>
+                    <div class="detail">
+                        {{personal_project["description"]}}
+                    </div>
+
+                    </h7>
+                    </p>
+                    <button type="button" class="btn btn-dark">자세히 보기</button>
+                </div>
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+</section>
+
+
+
+<!-- Contact-->
+<section class="page-section" style="background-color: #ADCF9F;" id="contact">
+    <div class="container">
+        <div class="text-center" style="position: relative">
+            <h2 class="section-heading text-uppercase">Archiving
+                <button type="button" class="btn btn-dark btn-lg" style="position: absolute; right:0%; bottom:0%;"
+                ">
+                edit
+                </button>
+            </h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <div class="last">
+            <div class="Archiving">
+                <img src="https://cdg-portfolio.com/images/archiving/git-hub.png">
+                <div><br><A href="https://github.com/">주소를 입력해주세요</A></div>
+            </div>
+            <div class="t_story">
+                <img src="https://cdg-portfolio.com/images/archiving/tistory.png">
+                <div><br><A href="https://www.tistory.com/">주소를 입력해주세요</A></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer-->
+<!-- footer html 시작 -->
+<footer class="footer_main">
+    <div class="footer_img_card">
+        <img src="(../static/assets/img/about/git-hub.png)" class="footer_img">
+        <img src="(../static/assets/img/tstory.png)" class="footer_img">
+    </div>
+
+    <div class="footer_title">
+        © 2022. Team Innovation Camp(Gangwon). First week group 5. All rights reserved.
+    </div>
+</footer>
+<!-- footer html 끝 -->
+
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="./../static/js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+</body>
+</html>
