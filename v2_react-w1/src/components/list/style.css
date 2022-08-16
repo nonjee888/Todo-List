@@ -1,12 +1,10 @@
 .list-container {
-    height: 551px;
-    width: 994px;
     padding: 0 24px;
   }
   
   
   .list-wrapper {
-    flex-wrap: flex;
+    flex-wrap: wrap;
     gap: 12px;
     display: flex;
   }

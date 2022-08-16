@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Enovation_camp/git_test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/v2_react-w1/React" vcs="Git" />
   </component>
 </project>
