@@ -1,0 +1,63 @@
+.wrap{
+    height: 450px;
+    width: 500px;
+    margin: auto;
+    background-color:rgba(165, 181, 224, 0.682);
+    box-shadow: 1px 1px 1px gray;
+    border-radius: 10px;
+}
+
+.label-input-group{
+    height: 200px;
+    width: 500px;
+    margin: auto;
+    padding-top: 60px;
+}
+
+.input-email,.input-pw{
+    height: 50px;
+    width: 280px;
+    border: none;
+    margin: 10px 40px;
+    float: right;
+    display: inline;
+    box-shadow: 2px 2px gray;
+    font-size: 20px;
+    color: grey;
+    border-radius: 3px;
+}
+
+.label-email, .label-pw{
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    float: left;
+    margin: 30px 0 0 18px;
+    display: inline;
+}
+
+.label-pw {
+    margin-top: 5 0px;
+}
+
+.btn-signUp {
+    height: 40px;
+    width: 200px;
+    border:none;
+    font-size: 18px;
+    display: inline;
+    margin : 100px 0 0 20px;
+    border-radius: 3px;
+
+}
+
+.btn-login {
+    height: 40px;
+    width: 200px;
+    border:none;
+    font-size: 18px;
+    display: inline;
+    margin : 100px 0 0 40px;
+    border-radius: 3px;
+}
