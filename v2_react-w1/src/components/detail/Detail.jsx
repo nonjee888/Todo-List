@@ -11,6 +11,7 @@ const Detail = (props) => {
         console.log(todo)
         if (todo.id == id) {
             return todo
+            
         }
     })
     console.log(find_todo);//find_todo에 뭐가나오는지 보여줘

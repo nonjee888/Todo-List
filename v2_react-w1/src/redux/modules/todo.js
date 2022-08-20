@@ -43,10 +43,10 @@ export default function reducer(state = initialState, action = {}) {
             return state;
     }
 }
-let number=[0];
-const initialState ={
 
-    list:[
+const initialState =
+
+    [
         {                                     /////list: 넣어야하는데 :가 에러남
             id: 1,
             title: "react를 배워봅시다.",
@@ -66,18 +66,13 @@ const initialState ={
             body: "44 컴포넌트는?",
             isDone: false
 
-        }],
-   todo:{
-    id: number,
-    title: "",
-    body: "",
-    isDone: false
-
-}      
+        }]
+   
+     
 
 
 
-}
+
 // Action Creators
 export function creatTodo(todo) {
     return { type: CREATE, todo: todo };     //key: value
