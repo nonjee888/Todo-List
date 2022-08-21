@@ -13,6 +13,8 @@ function Todo({ todo, onRemove, TobeDone }) {                 //List로부터 to
         
     const history = useHistory();
     number++;
+
+    
     return (
         <div className="todo-container">
             <div>
@@ -31,12 +33,15 @@ function Todo({ todo, onRemove, TobeDone }) {                 //List로부터 to
             <div className="button-set">
                 <button
                     onClick={() =>
-                        onRemove(todo.id)
-                    }
+                        {onRemove(todo.id);
+                        
+                        
+                    }}
                     className="todo-delete-button button">
                     삭제하기</button>
                 <button
-                    onClick={() => TobeDone(todo.id)
+                    onClick={() => 
+                        TobeDone(todo.id)
                     }
                     className="todo-complete-button button">
                     {todo.isDone ? "취 소" : "완 료"}

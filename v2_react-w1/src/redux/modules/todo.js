@@ -1,53 +1,9 @@
 // todo.js
 
-// Actions
-const LOAD = 'todo/LOAD';
-const CREATE = 'todo/CREATE';
-const UPDATE = 'todo/UPDATE';
-const REMOVE = 'todo/REMOVE';
-
-// Reducer
-
-export default function reducer(state = initialState, action = {}) {  
-    switch (action.type) {
-
-        case "todo/CREATE": {
-            const new_todo = [state.todo, action.todo];
-            console.log(new_todo)
-            return { list: [] };
-            ////todo가 array인데 list[]에 넣어주는게 맞나  
-        }
-
-        case "todo/LOAD": {
-            const old_todo = [...state.todo, action.todo];   
-            return state;
-        }
-
-        case "todo/UPDATE": {
-            const update_todo = state.map(                  
-                todo =>
-                
-                    todo.id === action.id // id 가 일치하면
-                        ? { ...todo, done: !todo.done } // done 값을 반전시키고
-                        : todo // 아니라면 그대로 둠
-            );
-        }
-
-        case "todo/REMOVE": {
-            const remove_todo = state.filter(              
-                todo => todo.id !== action.id
-            );
-        }
-
-        default:
-            return state;
-    }
-}
-
 const initialState =
 
     [
-        {                                     /////list: 넣어야하는데 :가 에러남
+        {                                     /////////뭔가를: 넣어야하는데 
             id: 1,
             title: "react를 배워봅시다.",
             body: "함수형 컴포넌트는?",
@@ -67,11 +23,52 @@ const initialState =
             isDone: false
 
         }]
-   
-     
 
+// Actions
 
+const LOAD = 'todo/LOAD';
+const CREATE = 'todo/CREATE';
+const UPDATE = 'todo/UPDATE';
+const REMOVE = 'todo/REMOVE';
 
+// Reducer
+
+export default function reducer(state = initialState, action = {}) {  
+    
+    switch (action.type) {
+        
+        case "todo/CREATE": {
+            const new_todo = [state.todo, action.todo];
+            console.log(new_todo)
+            return { Object:{} };  //////////리턴에 뭐가들어가야해
+             
+        }
+
+        case "todo/LOAD": {
+            const old_todo = [...state.todo, action.todo];   
+            return state;
+        }
+
+        case "todo/UPDATE": {
+            const update_todo = state.map(
+                todo =>
+
+                    todo.id === action.id // id 가 일치하면
+                        ? { ...todo, done: !todo.done } // done 값을 반전시키고
+                        : todo // 아니라면 그대로 둠
+            );
+        }
+
+        case "todo/REMOVE": {
+            const remove_todo = state.filter(
+                todo => todo.id !== action.id
+            );
+        }
+
+        default:
+            return state;
+    }
+}
 
 // Action Creators
 export function creatTodo(todo) {

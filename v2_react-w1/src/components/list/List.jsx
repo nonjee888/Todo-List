@@ -1,15 +1,18 @@
+import { useSelector } from "react-redux";
 import React from "react";
 import './style.css';
 import Todo from '../todo/Todo';
 
-function List({setTodos, todos}) {                        //todos와 setTodos를 부모컴퍼넌트에게서 받았음
-                                                          //filter 메소드는 각요소마다 콜백함수를 실행해서 리턴값을 true인것만 걸러내는 함수
-    const onRemove = (selectedId) => {                    //함수 실행시 todos 배열에서 todo.id가 피라미터와(selectedId) 일치하지 않는 요소만 추출해서 새로운 배열을 만듦. (= todo.id가 selectedId인 것을 제거하고 나머지만 배열에 남는다.)                                  
+function List({setTodos, todos}) {                        
+    
+    const todo = useSelector((state) => state.todo) 
+    console.log(todo)
+    const onRemove = (selectedId) => {                    
         console.log(onRemove)
         const tobedoneTodos = todos.filter((todo) => {
         return todo.id !== selectedId
        })
-        setTodos(tobedoneTodos)                            //결과적으로 그 배열은 완료해야 할 리스트 = tobedoneTodos가 된다. 
+        setTodos(tobedoneTodos)                            
     }
 
     const TobeDone = (selectedId) => {                    
