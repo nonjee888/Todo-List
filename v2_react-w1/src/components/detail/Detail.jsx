@@ -3,12 +3,12 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Detail = (props) => {
+const Detail = (props) => {         ///////props 왜 못가져옴?
     const { id } = useParams((state) => state.id)
     const todo = useSelector((state) => state.todo)
     console.log({id}, todo)
     const find_todo = todo.find(function (todo) {         //find함수
-        console.log(todo)
+        console.log(todo)         /////////undefined 왜????????????????????
         if (todo.id == id) {
             return todo
             
