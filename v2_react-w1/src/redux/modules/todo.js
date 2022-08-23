@@ -1,9 +1,8 @@
 // todo.js
-
+let id= 3;
 const initialState =
 
-    [
-        {                                     /////////뭔가를: 넣어야하는데 
+    [{                                     /////////뭔가를: 넣어야하는데 
             id: 1,
             title: "react를 배워봅시다.",
             body: "함수형 컴포넌트는?",
@@ -14,13 +13,6 @@ const initialState =
             title: "react를 배워봅시다.",
             body: "클래스형 컴포넌트는?",
             isDone: true
-
-        },
-        {
-            id: 3,
-            title: "44를 배워봅시다.",
-            body: "44 컴포넌트는?",
-            isDone: false
 
         }]
 
@@ -38,14 +30,14 @@ export default function reducer(state = initialState, action = {}) {
     switch (action.type) {
         
         case "todo/CREATE": {
-            const new_todo = [state.todo, action.todo];
+            const new_todo = {...state.todo, action};       
             console.log(new_todo)
-            return { Object:{} };  //////////리턴에 뭐가들어가야해
+            return [{new_todo}];  //////////리턴에 뭐가들어가야해?
              
         }
 
         case "todo/LOAD": {
-            const old_todo = [...state.todo, action.todo];   
+            const old_todo = {...state.todo, action};   
             return state;
         }
 
@@ -60,9 +52,7 @@ export default function reducer(state = initialState, action = {}) {
         }
 
         case "todo/REMOVE": {
-            const remove_todo = state.filter(
-                todo => todo.id !== action.id
-            );
+            const remove_todo = state.filter((todo) => todo.id !== action.id);
         }
 
         default:

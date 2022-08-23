@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom"
 
 let number = 3;
 function Todo({ todo, onRemove, TobeDone }) {                 //List로부터 todo, onRemove, TobeDone 받아옴
-    
+    console.log(todo)
     const initialState = {
         id:number, 
         title: "", 

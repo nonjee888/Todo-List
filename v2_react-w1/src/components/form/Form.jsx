@@ -2,34 +2,18 @@ import React , { useState }  from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { creatTodo } from "../../redux/modules/todo";
-
 import './style.css';
 
-let number = 3; 
+let id = 3; 
 
 function Form() {    
-    
-    const [todos, setTodos] = useState([      
-    {
-      id: 1,                                  
-      title: "react를 배워봅시다.",
-      body: "함수형 컴포넌트는?",
-      isDone: false
-    },
-    {
-      id: 2,
-      title: "react를 배워봅시다.",
-      body: "클래스형 컴포넌트는?",
-      isDone: true
-    
-    }
-  ]);
 
-    const todo = useSelector((state) => state.todo) 
+    const todo = useSelector((state) => state.todo)
+    console.log(todo)
     const dispatch = useDispatch();
-
+   
     const initialState = {
-        id:number, 
+        id:id++, 
         title: "", 
         body: "", 
         isDone: false} //초기값
@@ -43,13 +27,12 @@ function Form() {
     }   
 
     const onSubmitHandler=(event)=>{
-        console.log(event)
         event.preventDefault() 
-        setTodos([...todos, {...inputTodo, id:number}])   
+        // setTodos([...todos, {...inputTodo, id:number}])
         setInputTodo(initialState)
-        number++; 
-        dispatch(creatTodo({...inputTodo, id:number}));
-         
+        dispatch(creatTodo({...inputTodo, id:id++}));
+        // number++; 
+        console.log(dispatch)  
     }
 
     return (

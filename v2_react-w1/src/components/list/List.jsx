@@ -1,10 +1,26 @@
 import { useSelector } from "react-redux";
-import React from "react";
+import React, {useState} from "react";
 import './style.css';
 import Todo from '../todo/Todo';
 
-function List({setTodos, todos}) {                        
+function List() {                        
     
+    const [todos, setTodos] = useState([      //todos 의 state를 갱신하면 새 갱신값인 setTodos를 받아 컴포넌트 리렝더링을 큐에 등록.
+    {
+      id: 1,                                  //초기 defualt 값 setting 해 주어 첫 화면에 출력 될 수 있도록 한다.
+      title: "react를 배워봅시다.",
+      body: "함수형 컴포넌트는?",
+      isDone: false
+    },
+    {
+      id: 2,
+      title: "react를 배워봅시다.",
+      body: "클래스형 컴포넌트는?",
+      isDone: true
+    
+    }
+  ]);
+
     const todo = useSelector((state) => state.todo) 
     console.log(todo)
     const onRemove = (selectedId) => {                    
@@ -35,8 +51,8 @@ function List({setTodos, todos}) {
                     if (todo.isDone === false) {
                         return( 
                         <Todo 
+                        key={todo.id}
                         todo={todo} 
-                        key={todo.id} 
                         setTodos={setTodos} 
                         onRemove={onRemove} 
                         TobeDone={TobeDone}
@@ -51,8 +67,8 @@ function List({setTodos, todos}) {
                     if (todo.isDone === true) {
                         return( 
                         <Todo 
+                        key={todo.id}
                         todo={todo} 
-                        key={todo.id} 
                         setTodos={setTodos} 
                         onRemove={onRemove} 
                         TobeDone={TobeDone} 
