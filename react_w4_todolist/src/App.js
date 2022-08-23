@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import TodoList from "./pages/TodoList";
 import Detail from "./pages/Detail"; 
@@ -7,12 +8,10 @@ function App() {                      //컴포넌트 이름은 대문자화. 꼭
 
   return (
     <div className="App">
-      <Route path="/" exact>
-        <TodoList />
-      </Route>
-      <Route path="/detail/:id" exact>
-        <Detail />
-      </Route>
+      <Routes>
+        <Route path="/" exact element={<TodoList />}/>
+        <Route path="/detail/:id" element={<Detail />}exact/>
+      </Routes>
     </div>
   );              //하위 컴포넌트인 TodoList를 Rendering 함
 }

@@ -33,8 +33,7 @@ function Layout({children}) {
     <div>
         <Layout1>
             <Header>
-                <div>My Todo List</div>
-                <div>React</div>
+                <HeaderText>GETTING BETTER</HeaderText>
             </Header>
 
             <Form onSubmit={onSubmitHandler}>
@@ -47,8 +46,7 @@ function Layout({children}) {
                         value={inputTodo.title}        //input1의 value값은 inputTodo의 title
                         onChange={onChangeHandler}
                         />
-
-                <FormLabel>
+                    <FormLabel>
                         내용</FormLabel>
                     <Addinput2
                         type="text"
@@ -80,34 +78,50 @@ const Layout1 = styled.div`
 `
 
 const Header = styled.div`
+
     display: flex;
     justify-content: space-between;
-    border:silver solid 1px;
     height: 50px;
     align-items: center;
     padding-inline: 20px;
     max-width : 1200px;
+    background-image : url("https://u7.uidownload.com/vector/141/115/vector-gradient-wallpaper-background-eps.jpg");
+    background-size : cover;
+    font-family:'Nanum Gothic', sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 `;
 
+const HeaderText = styled.div`
+    text-align: right;
+    color: white;
+`
+
 const Form = styled.form`
-    background-color: #eee;
-    border-radius: 12px;
+    background-color:  #b9c2e8;
     height: 50px;
     margin: 0 auto;
     padding: 30px;
     justify-content: space-between;
     display :flex;
     align-items: center;
+    background-image : url("https://u7.uidownload.com/vector/141/115/vector-gradient-wallpaper-background-eps.jpg");
+    background-size : cover;
 `;
 
 const Inputgroup = styled.div`
     align-items: center;
     display: flex;
+    gap: 20px;
+    font-family:'Nanum Gothic', sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 `;
 
 const FormLabel = styled.label`
     font-size: 16px;
     font-weight: 700;
+    color: white;
+    font-family:'Nanum Gothic', sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 `;
 const Addinput1 = styled.input`
     height: 40px;
@@ -122,7 +136,7 @@ const Addinput2 = styled.input`
     border-radius: 12px;
 `;
 const Button = styled.button`
-    background-color: teal;
+    background-color:  #261957;
     border: none;
     border-radius: 10px;
     font-weight: 700;

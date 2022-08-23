@@ -37,7 +37,7 @@ export const todos_id = (payload) => {
 // initial state
 const initialState = {
 todos:[{                                    
-        id: 1,
+        id: "1",
         title: "react를 배워봅시다.",
         body: "함수형 컴포넌트는?",
         isDone: false,
@@ -88,7 +88,7 @@ const todos = (state = initialState, action) => {
             return {
                 ...state,
                 todo: state.todos.find((todo)=> {                
-                    return todo.id === action.payload;
+                    return todo.id == action.payload;  ////////////////
                      }),
                          };  
    default:
