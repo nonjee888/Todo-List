@@ -6,16 +6,9 @@ function TodoList () {
     
     return (
         <div>
-          <Layout>
-          <List />
-          </Layout>
+          <Layout/>
+          <List/>
         </div>
     );
-    
-    
-   
-    
-   
-
 }
 export default TodoList;

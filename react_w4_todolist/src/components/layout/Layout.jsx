@@ -4,8 +4,8 @@ import { create_todos } from "../../redux/modules/todo";
 import styled from "styled-components";
 
 let id=2;
-function Layout({children}) {      
-    
+function Layout() {      
+
     // const todo = useSelector((state) => state.todo)
     
     const dispatch = useDispatch();
@@ -61,8 +61,7 @@ function Layout({children}) {
                 >
                     추가하기
                 </Button>
-                </Form>
-                {children}            
+                </Form>        
         </Layout1>
         </div>
     )

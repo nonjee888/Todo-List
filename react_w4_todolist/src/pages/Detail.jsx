@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { todos_id } from "../redux/modules/todo";
 import styled from "styled-components";
+import Kong from "../img/Kong.png";
 
 const Detail = () => {         
     
@@ -27,6 +28,7 @@ const Detail = () => {
                     <Wrapdetail>
                         <Title>{todos.title}</Title>
                         <Body>{todos.body}</Body>
+                        <img src={Kong}/>
                     </Wrapdetail>
             </DetailCard>
         </Background>
