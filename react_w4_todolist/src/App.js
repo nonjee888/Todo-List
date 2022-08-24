@@ -9,7 +9,7 @@ function App() {                      //컴포넌트 이름은 대문자화. 꼭
   return (
     <div className="App">
       <Routes>
-        <Route path="/" exact element={<TodoList />}/>
+        <Route path="/" exact element={<TodoList/>}/>
         <Route path="/detail/:id" element={<Detail />}exact/>
       </Routes>
     </div>

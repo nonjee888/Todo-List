@@ -45,6 +45,7 @@ function Layout() {
                         name='title'
                         value={inputTodo.title}        //input1의 value값은 inputTodo의 title
                         onChange={onChangeHandler}
+                        required
                         />
                     <FormLabel>
                         내용</FormLabel>
