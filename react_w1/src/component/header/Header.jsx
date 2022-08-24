@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css"
 
 function Header() {
@@ -9,5 +8,4 @@ function Header() {
         </div>
     );
 }
-
 export default Header;

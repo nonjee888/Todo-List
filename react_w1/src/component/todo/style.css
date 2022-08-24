@@ -1,6 +1,7 @@
-.todo-container {
+.todos-container {
     border: teal 4px solid;
     border-radius: 12px;
+    gap: 12px;
     height: 165px;
     width: 270px;
     padding: 12px 24px 12px
@@ -22,13 +23,13 @@
     border: none;
   }
   
-  .button-set {
+  .todo-button-set {
     gap: 10px;
     display: flex;
     margin-top: 24px;
   }
   
-  .todo-delete-button {
+  .todo-delete-botton {
     background-color: white;
     border: 2px red solid;
     border-radius: 10px;
@@ -36,7 +37,7 @@
     width: 50%;
   }
   
-  .todo-complete-button {
+  .todo-complete-botton {
     background-color: white;
     border: 2px teal solid;
     border-radius: 10px;
